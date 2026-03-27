@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const DashboardLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -77,40 +78,49 @@ const DashboardLayout = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu (Web-like) */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden fixed top-[69px] left-0 w-full bg-[#faf8fe] z-40 border-b border-[#ccc4cf]/30 shadow-lg animate-in slide-in-from-top-2">
-            <nav className="flex flex-col p-4 space-y-2">
-              {navLinks.map((link) => {
-                const isActive = location.pathname.startsWith(link.path);
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all ${
-                      isActive
-                        ? 'bg-white text-[#2E1A47] shadow-sm'
-                        : 'text-[#4a454e] hover:bg-white/50'
-                    }`}
-                  >
-                    <span className="material-symbols-outlined">{link.icon}</span>
-                    <span>{link.name}</span>
+        {/* Enhanced Mobile Dropdown Menu (Web-like) */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="lg:hidden fixed top-[69px] left-0 w-full bg-[#faf8fe]/95 backdrop-blur-lg z-40 border-b border-[#ccc4cf]/30 shadow-2xl overflow-hidden"
+            >
+              <nav className="flex flex-col p-6 space-y-2">
+                {navLinks.map((link, index) => {
+                  const isActive = location.pathname.startsWith(link.path);
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center gap-4 px-5 py-4 rounded-2xl font-bold transition-all ${
+                        isActive
+                          ? 'bg-white text-[#2E1A47] shadow-[0_4px_12px_rgba(46,26,71,0.06)]'
+                          : 'text-[#4a454e] hover:bg-white/50'
+                      }`}
+                    >
+                      <span className="material-symbols-outlined text-2xl">{link.icon}</span>
+                      <span className="text-lg">{link.name}</span>
+                    </Link>
+                  );
+                })}
+                <div className="h-px bg-[#ccc4cf]/30 my-4"></div>
+                <div className="grid grid-cols-2 gap-4">
+                  <Link to="/settings" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 px-4 py-4 rounded-2xl font-bold text-[#4a454e] bg-white text-sm">
+                    <span className="material-symbols-outlined text-xl">settings</span>
+                    <span>Settings</span>
                   </Link>
-                );
-              })}
-              <div className="h-px bg-[#ccc4cf]/30 my-2"></div>
-              <Link to="/settings" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-[#4a454e]">
-                <span className="material-symbols-outlined text-xl">settings</span>
-                <span>Settings</span>
-              </Link>
-              <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-[#ba1a1a]">
-                <span className="material-symbols-outlined text-xl">logout</span>
-                <span>Logout</span>
-              </Link>
-            </nav>
-          </div>
-        )}
+                  <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 px-4 py-4 rounded-2xl font-bold text-[#ba1a1a] bg-red-50 text-sm">
+                    <span className="material-symbols-outlined text-xl">logout</span>
+                    <span>Logout</span>
+                  </Link>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Header from provided HTML */}
         <header className="sticky top-0 z-30 hidden lg:flex bg-[#faf8fe]/80 backdrop-blur-md px-8 py-5 items-center justify-between">

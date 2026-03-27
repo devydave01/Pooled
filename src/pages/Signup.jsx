@@ -1,114 +1,169 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Input from '../components/atoms/Input';
-import Button from '../components/atoms/Button';
-import logo from '../assets/logo.png';
+import React from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {motion} from "framer-motion";
+import logo from "../assets/logo.png";
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    navigate('/dashboard');
+    navigate("/dashboard");
   };
 
   return (
-    <div className="min-h-screen bg-[#faf8fe] dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-        <Link to="/" className="inline-flex items-center gap-3">
-          <img src={logo} alt="Pooled Logo" className="w-10 h-10 object-contain" />
-          <span className="text-3xl font-black text-[#14003c] dark:text-purple-300 font-headline tracking-tight">Pooled</span>
-        </Link>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#14003c] dark:text-white font-headline">
-          Create your account
-        </h2>
-        <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
-          Already have an account?{' '}
-          <Link to="/login" className="font-medium text-primary hover:text-primary/80 transition-colors">
-            Sign in
+    <div className="min-h-screen bg-[#faf8fe] dark:bg-slate-950 flex font-body">
+      {/* Left side - Aesthetic Branding */}
+      <div className="hidden lg:flex w-1/2 bg-[#14003c] relative overflow-hidden flex-col justify-between p-16">
+        <div className="z-10">
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={logo}
+              alt="Pooled Logo"
+              className="w-10 h-10 object-contain brightness-0 invert"
+            />
+            <span className="text-3xl font-black text-white font-headline tracking-tight">
+              Pooled
+            </span>
           </Link>
-        </p>
+        </div>
+
+        <div className="z-10 space-y-6">
+          <motion.h1
+            initial={{opacity: 0, y: 30}}
+            animate={{opacity: 1, y: 0}}
+            className="text-7xl font-black text-white leading-tight font-headline"
+          >
+            Build your <br />{" "}
+            <span className="text-purple-400">future pool.</span>
+          </motion.h1>
+          <p className="text-xl text-purple-200/60 max-w-md font-medium">
+            Start a collective account in minutes. Invite friends, set goals,
+            and grow together.
+          </p>
+        </div>
+
+        {/* Abstract background elements */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-purple-600/20 to-transparent rounded-full blur-3xl -mr-96 -mt-96"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-600/10 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-slate-900 py-8 px-4 shadow-xl shadow-[#14003c]/5 sm:rounded-3xl sm:px-10 border border-slate-100 dark:border-slate-800">
-          <form className="space-y-6" onSubmit={handleSignup}>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-                Full name
+      {/* Right side - Signup Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+        <motion.div
+          initial={{opacity: 0, scale: 0.95}}
+          animate={{opacity: 1, scale: 1}}
+          className="w-full max-w-md space-y-8"
+        >
+          <div className="lg:hidden text-center mb-8">
+            <Link to="/" className="inline-flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Pooled Logo"
+                className="w-10 h-10 object-contain"
+              />
+              <span className="text-3xl font-black text-[#14003c] dark:text-purple-300 font-headline tracking-tight">
+                Pooled
+              </span>
+            </Link>
+          </div>
+
+          <div>
+            <h2 className="text-4xl font-black text-[#14003c] dark:text-white font-headline tracking-tight">
+              Create account
+            </h2>
+            <p className="mt-3 text-slate-500 dark:text-slate-400 text-lg">
+              Start your journey with Pooled today
+            </p>
+          </div>
+
+          <form className="space-y-5" onSubmit={handleSignup}>
+            <div className="space-y-2">
+              <label className="text-xs font-black text-[#14003c] dark:text-purple-200 uppercase tracking-widest ml-1">
+                Full Name
               </label>
-              <div className="mt-1">
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  placeholder="Alex Rivera"
-                />
-              </div>
+              <input
+                type="text"
+                required
+                className="w-full px-6 py-4 rounded-2xl bg-[#efedf3] dark:bg-slate-900 border-none focus:ring-2 focus:ring-primary/20 outline-none text-[#14003c] dark:text-white font-medium placeholder:opacity-30 transition-all font-body"
+                placeholder="Alex Rivera"
+              />
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-                Email address
+            <div className="space-y-2">
+              <label className="text-xs font-black text-[#14003c] dark:text-purple-200 uppercase tracking-widest ml-1">
+                Email Address
               </label>
-              <div className="mt-1">
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  placeholder="name@example.com"
-                />
-              </div>
+              <input
+                type="email"
+                required
+                className="w-full px-6 py-4 rounded-2xl bg-[#efedf3] dark:bg-slate-900 border-none focus:ring-2 focus:ring-primary/20 outline-none text-[#14003c] dark:text-white font-medium placeholder:opacity-30 transition-all font-body"
+                placeholder="name@example.com"
+              />
             </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className="space-y-2">
+              <label className="text-xs font-black text-[#14003c] dark:text-purple-200 uppercase tracking-widest ml-1">
                 Password
               </label>
-              <div className="mt-1">
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="new-password"
-                  required
-                  placeholder="••••••••"
-                />
-              </div>
+              <input
+                type="password"
+                required
+                className="w-full px-6 py-4 rounded-2xl bg-[#efedf3] dark:bg-slate-900 border-none focus:ring-2 focus:ring-primary/20 outline-none text-[#14003c] dark:text-white font-medium placeholder:opacity-30 transition-all font-body"
+                placeholder="••••••••"
+              />
             </div>
 
-            <div>
-              <Button type="submit" className="w-full">
-                Create Account
-              </Button>
-            </div>
-            <p className="text-xs text-center text-slate-500 dark:text-slate-400 mt-4">
-              By creating an account, you agree to our Terms of Service and Privacy Policy.
+            <p className="text-xs text-slate-400 font-medium px-1">
+              By signing up, you agree to our{" "}
+              <a href="#" className="text-primary hover:underline">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="#" className="text-primary hover:underline">
+                Privacy Policy
+              </a>
+              .
             </p>
+
+            <button
+              type="submit"
+              className="w-full bg-[#14003c] text-white py-5 rounded-2xl font-black text-lg hover:bg-[#2c046f] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl shadow-primary/20 mt-4"
+            >
+              Sign Up
+            </button>
           </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-slate-200 dark:border-slate-700" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white dark:bg-slate-900 text-slate-500">Or sign up with</span>
-              </div>
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-200 dark:border-slate-800" />
             </div>
-
-            <div className="mt-6">
-              <button className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-slate-300 dark:border-slate-700 rounded-xl font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                <img className="w-5 h-5" src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
-                <span>Google</span>
-              </button>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-[#faf8fe] dark:bg-slate-950 text-slate-400 font-bold uppercase tracking-widest">
+                or
+              </span>
             </div>
           </div>
-        </div>
+
+          <button className="w-full flex items-center justify-center gap-4 py-4 px-6 border-2 border-slate-200 dark:border-slate-800 rounded-2xl font-black text-[#14003c] dark:text-white hover:bg-white dark:hover:bg-slate-900 transition-all text-sm">
+            <img
+              className="w-5 h-5"
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
+            />
+            <span>Sign up with Google</span>
+          </button>
+
+          <p className="text-center text-slate-500 font-medium pt-4">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-primary font-black hover:underline"
+            >
+              Sign In
+            </Link>
+          </p>
+        </motion.div>
       </div>
     </div>
   );

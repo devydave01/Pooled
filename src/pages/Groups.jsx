@@ -15,9 +15,9 @@ const Groups = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: 'Summer Trip 25', members: 4, goal: '$5k', current: '$3.2k' },
-          { name: 'Rent & Utilities', members: 3, goal: '$2.5k', current: '$2.5k' },
-          { name: 'Startup Fund', members: 2, goal: '$10k', current: '$1.5k' }
+          { name: 'Summer Trip 25', members: 4, goal: '₦5k', current: '₦3.2k' },
+          { name: 'Rent & Utilities', members: 3, goal: '₦2.5k', current: '₦2.5k' },
+          { name: 'Startup Fund', members: 2, goal: '₦10k', current: '₦1.5k' }
         ].map((pool, i) => (
           <div key={i} className="bg-white dark:bg-slate-900 rounded-[2rem] p-6 shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
             <div className="mb-6">

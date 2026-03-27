@@ -15,8 +15,8 @@ const Accounts = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
-          { name: 'Primary Checking', balance: '$4,250.00', number: '**** 8392' },
-          { name: 'Savings Vault', balance: '$8,200.00', number: '**** 1120' }
+          { name: 'Primary Checking', balance: '₦4,250.00', number: '**** 8392' },
+          { name: 'Savings Vault', balance: '₦8,200.00', number: '**** 1120' }
         ].map((acc, i) => (
           <div key={i} className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow cursor-pointer relative overflow-hidden group">
             <div className="absolute -right-8 -top-8 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>

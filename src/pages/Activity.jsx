@@ -9,10 +9,10 @@ const Activity = () => {
       <div className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 shadow-sm border border-slate-100 dark:border-slate-800">
         <div className="space-y-6">
           {[
-            { title: 'Payment to Sarah', amount: '-$45.00', date: 'Today, 2:30 PM', type: 'out', icon: 'arrow_upward' },
-            { title: 'Added to Summer Trip Pool', amount: '+$150.00', date: 'Yesterday', type: 'in', icon: 'arrow_downward' },
-            { title: 'Monthly Salary', amount: '+$3,200.00', date: 'Mar 24', type: 'in', icon: 'account_balance' },
-            { title: 'Coffee Shop', amount: '-$5.40', date: 'Mar 23', type: 'out', icon: 'local_cafe' }
+            { title: 'Payment to Sarah', amount: '-₦45.00', date: 'Today, 2:30 PM', type: 'out', icon: 'arrow_upward' },
+            { title: 'Added to Summer Trip Pool', amount: '+₦150.00', date: 'Yesterday', type: 'in', icon: 'arrow_downward' },
+            { title: 'Monthly Salary', amount: '+₦3,200.00', date: 'Mar 24', type: 'in', icon: 'account_balance' },
+            { title: 'Coffee Shop', amount: '-₦5.40', date: 'Mar 23', type: 'out', icon: 'local_cafe' }
           ].map((item, i) => (
             <div key={i} className="flex justify-between items-center group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors">
               <div className="flex items-center gap-4">

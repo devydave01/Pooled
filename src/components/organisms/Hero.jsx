@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 const Hero = () => {
   const navigate = useNavigate();
   return (
-    <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
+    <section className="relative pt-14 pb-16 md:pt-24 md:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         <div className="flex justify-center">
           <motion.div

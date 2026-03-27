@@ -19,21 +19,24 @@ const Hero = () => {
               <span className="text-secondary">Modern Group</span>
             </h1>
             <p className="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed mx-auto">
-              A collaborative monolith designed for transparent group finances.
-              Manage collective wealth with the precision of a private bank and
-              the fluidity of a modern social network.
+              Group banking, simplified. Total transparency with less bank
+              visits.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-              <motion.button 
-                onClick={() => navigate('/signup')}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
+              <motion.button
+                onClick={() => navigate("/signup")}
+                whileHover={{scale: 1.02}}
+                whileTap={{scale: 0.95}}
                 className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-5 rounded-xl font-headline font-bold text-lg shadow-xl shadow-primary/10 transition-all"
               >
                 Start Pooling
               </motion.button>
-              <button 
-                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("features")
+                    ?.scrollIntoView({behavior: "smooth"})
+                }
                 className="bg-surface-container-highest text-on-surface px-10 py-5 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-high transition-colors"
               >
                 View Demo

@@ -1,16 +1,33 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Groups = () => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-7xl mx-auto px-8 py-12 pt-24 min-h-screen bg-[#faf8fe] dark:bg-slate-950">
-      <header className="flex justify-between items-end mb-8">
-        <h1 className="text-4xl font-black text-[#14003c] dark:text-purple-300 font-headline tracking-tight">
-          Shared Pools
-        </h1>
-        <button className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 flex items-center gap-2">
-          <span className="material-symbols-outlined text-[20px]">group_add</span>
-          Create Pool
-        </button>
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+        <div>
+          <h1 className="text-4xl font-black text-[#14003c] dark:text-purple-300 font-headline tracking-tight mb-2">
+            Shared Pools
+          </h1>
+          <p className="text-slate-500 font-medium">Manage your collective finances with ease.</p>
+        </div>
+        <div className="flex gap-3 w-full md:w-auto">
+          <button 
+            onClick={() => navigate('/groups/join')}
+            className="flex-1 md:flex-none bg-white text-[#14003c] px-6 py-3.5 rounded-2xl font-bold hover:bg-slate-50 transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-2"
+          >
+            <span className="material-symbols-outlined text-[20px]">group_add</span>
+            Join Pool
+          </button>
+          <button 
+            onClick={() => navigate('/groups/create')}
+            className="flex-1 md:flex-none bg-[#14003c] text-white px-8 py-3.5 rounded-2xl font-bold hover:bg-[#2c046f] transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2"
+          >
+            <span className="material-symbols-outlined text-[20px]">add</span>
+            Create Pool
+          </button>
+        </div>
       </header>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

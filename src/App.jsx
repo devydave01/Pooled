@@ -11,6 +11,8 @@ import Activity from './pages/Activity'
 import DashboardLayout from './components/templates/DashboardLayout'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import CreateGroup from './pages/CreateGroup'
+import JoinGroup from './pages/JoinGroup'
 
 function App() {
   return (
@@ -24,10 +26,12 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/groups" element={<Groups />} />
+        <Route path="/groups/create" element={<CreateGroup />} />
+        <Route path="/groups/join" element={<JoinGroup />} />
         <Route path="/activity" element={<Activity />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
 export default App

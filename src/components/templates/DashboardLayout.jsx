@@ -124,7 +124,12 @@ const DashboardLayout = () => {
               <input type="text" placeholder="Search..." className="bg-transparent border-none focus:ring-0 outline-none text-sm ml-2 w-48 text-[#1a1b1f]" />
             </div>
             <button className="material-symbols-outlined p-2 text-[#4a454e] hover:bg-[#efedf3] rounded-full transition-colors">notifications</button>
-            <button className="bg-[#2E1A47] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-[#2E1A47]/20 hover:scale-[1.02] transition-transform">Create Group</button>
+            <button 
+              onClick={() => window.location.href = '/groups/create'}
+              className="bg-[#2E1A47] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-[#2E1A47]/20 hover:scale-[1.02] transition-transform"
+            >
+              Create Group
+            </button>
           </div>
         </header>
 

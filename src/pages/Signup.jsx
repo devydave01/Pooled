@@ -14,8 +14,8 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-[#faf8fe] dark:bg-slate-950 flex font-body">
       {/* Left side - Aesthetic Branding */}
-      <div className="hidden lg:flex w-1/2 bg-[#14003c] relative overflow-hidden flex-col justify-between p-16">
-        <div className="z-10">
+      <div className="hidden lg:flex w-1/2 bg-[#14003c] relative overflow-hidden flex-col justify-start p-16">
+        <div className="z-10 mb-24">
           <Link to="/" className="flex items-center gap-3">
             <img
               src={logo}
@@ -37,9 +37,8 @@ const Signup = () => {
             Build your <br />{" "}
             <span className="text-purple-400">future pool.</span>
           </motion.h1>
-          <p className="text-xl text-purple-200/60 max-w-md font-medium">
-            Start a collective account in minutes. Invite friends, set goals,
-            and grow together.
+          <p className="text-xl text-purple-200/60 max-w-sm font-medium">
+            A shared bank for clear group money. Invite friends, set goals, and grow together.
           </p>
         </div>
 

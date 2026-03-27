@@ -1,75 +1,57 @@
-# React + TypeScript + Vite
+# Pooled
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Group banking, simplified.** Total transparency with zero bank visits.
 
-Currently, two official plugins are available:
+Pooled is a modern collaborative finance platform designed for transparent group money management. Manage collective wealth with the precision of a private bank and the fluidity of a modern social network.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+- **Collaborative Pools**: Create and join group accounts with friends or teammates.
+- **Premium UI/UX**: High-end interface featuring glassmorphism, smooth Framer Motion animations, and a modern split-screen authentication flow.
+- **Real-Time Transparency**: Track every transaction and contribution with a detailed activity feed.
+- **Naira Localized**: Native support for Nigerian Naira (₦) across all account balances and activity logs.
+- **Adaptive Navigation**: Persistent sidebars for desktop and animated full-screen overlays for mobile.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Tech Stack
 
-Note: This will impact Vite dev & build performances.
+- **Framework**: React 19 (Vite)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM v7
+- **Design System**: Atomic Design Architecture
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The project follows an **Atomic Design** pattern for maximum maintainability:
+- `src/components/atoms`: Base elements (buttons, inputs)
+- `src/components/molecules`: Small assemblies (form fields, nav items)
+- `src/components/organisms`: Complex organisms (Navbar, Hero, Features)
+- `src/components/templates`: Page layouts (DashboardLayout)
+- `src/pages`: Top-level route components
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/devydave01/Pooled.git
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✨ UI Refinements
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Hero Section**: Optimized typography with staggered entrance animations.
+- **Auth Flow**: Re-imagined Login and Signup with an immersive split-screen layout.
+- **Mobile Menu**: Redesigned as a premium, animated full-screen drawer.
+
+---
+
+Built with pride for the modern group.
